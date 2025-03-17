@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<asset:stylesheet src="main.css"/>
 <head>
     <meta name="layout" content="main"/>
     <title><g:layoutTitle default="Поиск отелей"/></title>

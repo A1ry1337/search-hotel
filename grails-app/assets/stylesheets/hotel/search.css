@@ -1,0 +1,83 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    table-layout: auto;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+
+th:first-child,
+td:first-child {
+    width: 10%;
+    text-align: center;
+    vertical-align: middle;
+}
+
+th:nth-child(2),
+td:nth-child(2) {
+    width: 90%;
+}
+
+th {
+    background-color: #007bff;
+    color: white;
+}
+
+.hotel-info {
+    display: inline-block;
+}
+
+.hotel-info a {
+    margin-left: 20px;
+    white-space: nowrap;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.hotel-info a:hover {
+    text-decoration: underline;
+}
+
+
+.pagination-container {
+    all: unset;
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.pagination-container a {
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    color: #007bff;
+    padding: 5px 10px;
+}
+
+
+.new-search {
+    display: inline-block;
+    background-color: #d3d3d3;
+    color: black;
+    padding: 10px 15px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.new-search:hover {
+    background-color: #b0b0b0;
+}
+
+
+.count-hotel {
+    font-size: 20px;
+}

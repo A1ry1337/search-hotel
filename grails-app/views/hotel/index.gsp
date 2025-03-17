@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html>
+
+
 <head>
     <meta name="layout" content="main"/>
     <title>Отели</title>
+    <asset:stylesheet href="hotel/hotel.css"/>
 </head>
 <body>
 <form action="${createLink(controller: 'hotel', action: 'search')}" method="get" target="_blank">
@@ -19,9 +22,9 @@
 </form>
 <h1>Справочник отелей</h1>
 
-<g:link controller="hotel" action="create">
-    <button>Добавить новый отель</button>
-</g:link>
+<g:link controller="hotel" action="create" class="add-hotel-button">Добавить новый отель</g:link>
+
+
 
 <g:if test="${hotels}">
     <table border="1">
@@ -41,11 +44,11 @@
                 <td>${hotel.stardom}</td>
                 <td>${hotel.website}</td>
                 <td>
-                    <g:link controller="hotel" action="show" id="${hotel.id}">Просмотр</g:link> |
-                    <g:link controller="hotel" action="edit" id="${hotel.id}">Редактировать</g:link> |
+                    <g:link controller="hotel" action="show" id="${hotel.id}" class="action-button">Просмотр</g:link>
+                    <g:link controller="hotel" action="edit" id="${hotel.id}" class="action-button">Редактировать</g:link>
                     <g:form controller="hotel" action="delete" method="POST" style="display:inline;">
                         <g:hiddenField name="id" value="${hotel.id}" />
-                        <button type="submit">Удалить</button>
+                        <button type="submit" class="delete-button">Удалить</button>
                     </g:form>
                 </td>
             </tr>
@@ -54,7 +57,7 @@
     </table>
 
     <!-- Пагинация -->
-    <div>
+    <div class="pagination-container">
         <g:set var="max" value="${params.int('max') ?: 10}" />
         <g:set var="offset" value="${params.int('offset') ?: 0}" />
 

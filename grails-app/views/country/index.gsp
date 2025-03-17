@@ -3,14 +3,13 @@
 <head>
     <meta name="layout" content="main"/>
     <title>Список стран</title>
+    <asset:stylesheet href="country/country.css"/>
 </head>
 <body>
 
 <h1>Список стран</h1>
 
-<g:link controller="country" action="create">
-    <button>Добавить новую страну</button>
-</g:link>
+<g:link controller="country" action="create" class="add-country-button">Добавить новую страну</g:link>
 
 <g:if test="${countries}">
     <table border="1">
@@ -27,11 +26,11 @@
                 <td>${country.name}</td>
                 <td>${country.cityCapital}</td>
                 <td>
-                    <g:link controller="country" action="show" id="${country.id}">Просмотр</g:link> |
-                    <g:link controller="country" action="edit" id="${country.id}">Редактировать</g:link> |
+                    <g:link controller="country" action="show" id="${country.id}" class="action-button">Просмотр</g:link>
+                    <g:link controller="country" action="edit" id="${country.id}" class="action-button">Редактировать</g:link>
                     <g:form controller="country" action="delete" method="POST" style="display:inline;">
                         <g:hiddenField name="id" value="${country.id}" />
-                        <button type="submit">Удалить</button>
+                        <button type="submit" class="delete-button">Удалить</button>
                     </g:form>
                 </td>
             </tr>
@@ -40,7 +39,7 @@
     </table>
 
     <!-- Пагинация -->
-    <div>
+    <div class="pagination-container">
         <g:set var="max" value="${params.int('max') ?: 10}" />
         <g:set var="offset" value="${params.int('offset') ?: 0}" />
 

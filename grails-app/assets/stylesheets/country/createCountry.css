@@ -1,0 +1,55 @@
+.input-field {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.action-button {
+    display: inline-block;
+    background-color: green;
+    color: white;
+    padding: 10px 15px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-right: 8px;
+}
+
+.action-button:hover {
+    background-color: darkgreen;
+}
+
+.back-button {
+    display: inline-block;
+    background-color: #d3d3d3;
+    color: black;
+    padding: 10px 15px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.back-button:hover {
+    background-color: #b0b0b0;
+}

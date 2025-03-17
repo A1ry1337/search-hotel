@@ -3,6 +3,7 @@
 <head>
     <meta name="layout" content="main"/>
     <title>Результаты поиска отелей</title>
+    <asset:stylesheet href="hotel/search.css"/>
 </head>
 <body>
 
@@ -21,19 +22,21 @@
             <tr>
                 <td>${hotel.stardom}</td>
                 <td>
-                    ${hotel.name}
-                    <g:if test="${hotel.website}">
-                        <br/>
-                        <a href="${hotel.website}" target="_blank">Перейти на сайт</a>
-                    </g:if>
+                    <span class="hotel-info">
+                        ${hotel.name}
+                        <g:if test="${hotel.website}">
+                            <a href="${hotel.website}" target="_blank">Перейти на сайт</a>
+                        </g:if>
+                    </span>
                 </td>
+
             </tr>
         </g:each>
         </tbody>
     </table>
 
     <!-- Пагинация -->
-    <div>
+    <div class="pagination-container">
         <g:set var="max" value="${params.int('max') ?: 10}" />
         <g:set var="offset" value="${params.int('offset') ?: 0}" />
 
@@ -45,7 +48,7 @@
         </g:if>
     </div>
     <br>
-    <div>Количество найденных отелей: ${total}</div>
+    <div class="count-hotel">Количество найденных отелей: ${total}</div>
 </g:if>
 
 <g:else>
@@ -53,7 +56,7 @@
 </g:else>
 
 <br>
-<g:link controller="hotel" action="index">Новый поиск</g:link>
+<g:link controller="hotel" action="index" class="new-search">Новый поиск</g:link>
 
 </body>
 </html>

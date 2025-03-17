@@ -1,0 +1,120 @@
+button {
+
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #007bff;
+    color: white;
+}
+
+td a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+td a:hover {
+    text-decoration: underline;
+}
+
+.add-country-button {
+    display: inline-block;
+    background-color: green;
+    color: white;
+    padding: 10px 15px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.add-country-button:hover {
+    background-color: darkgreen;
+}
+
+.action-button {
+    display: inline-block;
+    background-color: #d3d3d3;
+    color: black;
+    padding: 10px 15px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-right: 8px;
+}
+
+.action-button:hover {
+    text-decoration: none;
+    background-color: #b0b0b0;
+}
+
+.delete-button {
+    display: inline-block;
+    background-color: #c70000;
+    color: white;
+    padding: 10px 15px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.delete-button:hover {
+    background-color: #900000;
+}
+
+.pagination-container {
+    all: unset;
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.pagination-container a {
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    color: #007bff;
+    padding: 5px 10px;
+}
+
+.back-button {
+    display: inline-block;
+    background-color: #d3d3d3;
+    color: black;
+    padding: 10px 15px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.back-button:hover {
+    background-color: #b0b0b0;
+}
