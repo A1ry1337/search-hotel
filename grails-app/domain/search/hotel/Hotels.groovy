@@ -9,7 +9,7 @@ class Hotels {
     static belongsTo = [country: Countries]
 
     static constraints = {
-        name maxSize: 255
+        name maxSize: 255, unique: true
 
         country nullable: false
         name nullable: false
