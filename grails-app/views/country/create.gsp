@@ -8,6 +8,14 @@
 <body>
 <h1>Создать страну</h1>
 
+<g:if test="${country?.hasErrors()}">
+    <div class="alert alert-danger">
+        <g:eachError bean="${country}" var="error">
+            <p><g:message error="${error}"/></p>
+        </g:eachError>
+    </div>
+</g:if>
+
 <g:form action="save" controller="country">
     <label for="name">Название страны:</label>
     <g:textField name="name" value="${country?.name}" required="true" class="input-field"/>

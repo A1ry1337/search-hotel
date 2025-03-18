@@ -46,11 +46,15 @@ class HotelController {
 
     def save() {
         def hotel = new Hotels(params)
-        if (hotelService.save(hotel)) {
+        def result = hotelService.save(hotel)
+
+        if (result.success) {
             flash.message = "Отель успешно создан"
             redirect(action: "index")
         } else {
-            render(view: "create", model: [hotel: hotel])
+            def countries = countryService.list([:])
+            flash.message = "Ошибка при создании отеля"
+            render(view: "create", model: [hotel: hotel, errors: result.errors, countries: countries])
         }
     }
 
@@ -68,6 +72,7 @@ class HotelController {
     def update(Long id) {
         def hotel = hotelService.get(id)
         if (!hotel) {
+
             flash.message = "Отель не найден"
             redirect(action: "index")
             return

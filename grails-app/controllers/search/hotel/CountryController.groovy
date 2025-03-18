@@ -27,11 +27,12 @@ class CountryController {
 
     def save() {
         def country = new Countries(params)
-        if (countryService.save(country)) {
+        def result = countryService.save(country)
+        if (result.success) {
             flash.message = "Страна успешно создана"
             redirect(action: "index")
         } else {
-            render(view: "create", model: [country: country])
+            render(view: "create", model: [country: country, errors: result.errors])
         }
     }
 

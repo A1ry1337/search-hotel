@@ -1,16 +1,35 @@
 package search.hotel
 
-import grails.gorm.services.Service
+import grails.gorm.transactions.Transactional
+import grails.validation.ValidationException
 
-@Service(Hotels)
-interface HotelService {
-    Hotels get(Serializable id)
+@Transactional
+class HotelService {
 
-    List<Hotels> list(Map args)
+    Hotels get(Serializable id) {
+        return Hotels.get(id)
+    }
 
-    Long count()
+    List<Hotels> list(Map args) {
+        return Hotels.list(args)
+    }
 
-    Hotels save(Hotels hotel)
+    Long count() {
+        return Hotels.count()
+    }
 
-    void delete(Serializable id)
+    Map save(Hotels hotel) {
+        if (!hotel.validate()) {
+            return [success: false, errors: hotel.errors]
+        }
+        hotel.save(flush: true)
+        return [success: true, hotel: hotel]
+    }
+
+    void delete(Serializable id) {
+        Hotels hotel = Hotels.get(id)
+        if (hotel) {
+            hotel.delete(flush: true)
+        }
+    }
 }

@@ -9,7 +9,13 @@ class Hotels {
     static belongsTo = [country: Countries]
 
     static constraints = {
-        name maxSize: 255, unique: true
+        name maxSize: 255,
+                validator: { val, obj ->
+                    Hotels existingHotel = Hotels.findByNameAndCountry(val, obj.country)
+                    if (existingHotel && existingHotel.id != obj.id) {
+                        return ['unique.name.message']
+                    }
+                }
 
         country nullable: false
         name nullable: false

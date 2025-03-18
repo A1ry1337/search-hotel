@@ -8,6 +8,14 @@
 <body>
 <h1>Создать отель</h1>
 
+<g:if test="${hotel?.hasErrors()}">
+    <div class="alert alert-danger">
+        <g:eachError bean="${hotel}" var="error">
+            <p><g:message error="${error}"/></p>
+        </g:eachError>
+    </div>
+</g:if>
+
 <g:form action="save" controller="hotel">
     <label for="name">Название отеля:</label>
     <g:textField name="name" value="${hotel?.name}" required="true" class="input-field"/>
