@@ -66,7 +66,7 @@ class BootStrap {
             new Hotels(name: "Отель Лондон", country: uk, stardom: 5, website: "https://hotellondon.com").save(failOnError: true)
             new Hotels(name: "Отель Эдинбург", country: uk, stardom: 1).save(failOnError: true)
 
-            println "[BootStrap]Загружены начальные данные для стран и отелей."
+            println "[BootStrap]Загружены начальные данные для стран и отелей.  ${Countries.count()}"
 
         }
     }
