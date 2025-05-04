@@ -1,0 +1,3 @@
+yc_token     = "t1.9euelZrIio2Zi5aey82ekY6aycySx-3rnpWakcmXmIvKyomNnY3Il52Ty5Xl8_cxFiM_-e85IHUp_t3z93FEID_57zkgdSn-zef1656VmoyXlM6dxo_KjJPMy5vJx53O7_zF656VmoyXlM6dxo_KjJPMy5vJx53O.DQKfXKi-uLEVhauFeZv2ldiNdlzB9Val8HfWWuB6815BCv4GFOaFcnQ2L7D_czLhabCAgEw0dsXgAY9-RCUIDg"
+yc_cloud_id  = "b1g484d0h8l98nnrugpn"
+yc_folder_id = "b1gv7n9u8jrjq17j31pt"

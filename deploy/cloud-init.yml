@@ -1,0 +1,52 @@
+#cloud-config
+package_update: true
+package_upgrade: true
+packages:
+  - zip
+  - openjdk-11-jdk
+  - git
+  - unzip
+  - curl
+
+users:
+  - name: appuser
+    groups: sudo
+    shell: /bin/bash
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    ssh-authorized-keys:
+      - ${ssh_pub_key}
+
+runcmd:
+  # Установка SSL-сертификата для PostgreSQL
+  - mkdir -p /home/appuser/.postgresql
+  - wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" -O /home/appuser/.postgresql/root.crt
+  - chmod 0600 /home/appuser/.postgresql/root.crt
+  - chown -R appuser:appuser /home/appuser/.postgresql
+
+  # Остальные существующие команды
+  - mkdir -p /opt/app
+  - chown appuser:appuser /opt/app
+  - sudo -u appuser bash -c "curl -s https://get.sdkman.io | bash"
+  - sudo -u appuser bash -c 'source /home/appuser/.sdkman/bin/sdkman-init.sh && sdk install grails 4.0.13'
+  - sudo -u appuser git clone https://github.com/A1ry1337/search-hotel.git /opt/app
+  - |
+    cat > /etc/systemd/system/search-hotel.service <<EOL
+    [Unit]
+    Description=Search Hotel Grails Application
+    After=network.target
+
+    [Service]
+    User=appuser
+    WorkingDirectory=/opt/app
+    ExecStart=/bin/bash -c 'source /home/appuser/.sdkman/bin/sdkman-init.sh && ./grailsw run-app --port=8080'
+    Restart=always
+    Environment="JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64"
+    TimeoutStartSec=300
+
+    [Install]
+    WantedBy=multi-user.target
+    EOL
+  - chown -R appuser:appuser /opt/app
+  - systemctl daemon-reload
+  - systemctl enable search-hotel.service
+  - systemctl start search-hotel.service
