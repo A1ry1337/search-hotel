@@ -106,7 +106,7 @@ dataSource:
     password: password  # замените на ваш пароль
     dbCreate: update # create, create-drop, update, none
     properties:  # Добавьте этот блок для SSL
-        jdbcUrl: jdbc:postgresql://${PG_HOST}:6432/search_hotel_db
+        jdbcUrl: jdbc:postgresql://your-cluster.mdb.yandexcloud.net:6432/search_hotel_db
         connectionInitSql: "SELECT version();"
         initialSize: 5
         maxActive: 50
@@ -130,16 +130,16 @@ dataSource:
 environments:
     development:
         dataSource:
-            url: jdbc:postgresql://${PG_HOST}:6432/search_hotel_db?ssl=true&sslmode=verify-full&sslrootcert=/home/appuser/.postgresql/root.crt
+            url: jdbc:postgresql://your-cluster.mdb.yandexcloud.net:6432/search_hotel_db?ssl=true&sslmode=verify-full&sslrootcert=/home/appuser/.postgresql/root.crt
             username: user  # замените на ваше имя пользователя
             password: password  # замените на ваш пароль
     test:
         dataSource:
-            url: jdbc:postgresql://${PG_HOST}:6432/search_hotel_db_test?ssl=true&sslmode=verify-full&sslrootcert=/home/appuser/.postgresql/root.crt
+            url: jdbc:postgresql://your-cluster.mdb.yandexcloud.net:6432/search_hotel_db_test?ssl=true&sslmode=verify-full&sslrootcert=/home/appuser/.postgresql/root.crt
             username: user  # замените на ваше имя пользователя
             password: password  # замените на ваш пароль
     production:
         dataSource:
-            url: jdbc:postgresql://${PG_HOST}:6432/search_hotel_db_prod?ssl=true&sslmode=verify-full&sslrootcert=/home/appuser/.postgresql/root.crt
+            url: jdbc:postgresql://your-cluster.mdb.yandexcloud.net:6432/search_hotel_db_prod?ssl=true&sslmode=verify-full&sslrootcert=/home/appuser/.postgresql/root.crt
             username: user  # замените на ваше имя пользователя
             password: password  # замените на ваш пароль
